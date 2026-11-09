@@ -930,7 +930,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/types.ts`, `src/test/msw.ts`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B3.S2 — fetchPokemon devolve null quando não encontra
+#### [x] B3.S2 — fetchPokemon devolve null quando não encontra
 - Tipo: comportamento
 - Depende de: B3.S1
 - Paralelo: não
@@ -1077,7 +1077,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes de `validatePhoto`, `buildPhotoPath`, `photoPathFromUrl` e do upload na AddPokemonPage passam.
 - Depende de: B3
 
-#### [ ] B4.S1 — validatePhoto recusa arquivo que não é imagem
+#### [~] B4.S1 — validatePhoto recusa arquivo que não é imagem
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -1117,7 +1117,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/lib/validatePhoto.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B4.S3 — buildPhotoPath gera caminho na pasta do usuário
+#### [~] B4.S3 — buildPhotoPath gera caminho na pasta do usuário
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -1734,3 +1734,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B3.S1 | 1 | haiku | APROVADO |  |
 | B6.S1 | 1 | haiku | APROVADO |  |
 | B6.S2 | 1 | haiku | APROVADO |  |
+| B3.S2 | 1 | haiku | APROVADO |  |

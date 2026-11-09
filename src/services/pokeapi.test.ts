@@ -19,4 +19,12 @@ describe('pokeapi', () => {
 
     expect(result).toEqual(pikachuPreview)
   })
+
+  it('fetchPokemon devolve null quando a PokéAPI responde 404', async () => {
+    server.use(http.get('https://pokeapi.co/api/v2/pokemon/:query', () => new HttpResponse('Not Found', { status: 404 })))
+
+    const result = await fetchPokemon('naoexiste')
+
+    expect(result).toBeNull()
+  })
 })
