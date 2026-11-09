@@ -1,8 +1,11 @@
 import { useState } from 'react'
-import type { FormEvent } from 'react'
+import type { ChangeEvent, FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../auth/AuthProvider'
+import { validatePhoto } from '../lib/validatePhoto'
 import { fetchPokemon } from '../services/pokeapi'
 import { createEntry } from '../services/pokedex'
+import { uploadPhoto } from '../services/storage'
 import type { PokemonPreview } from '../types'
 
 export function AddPokemonPage() {
@@ -11,7 +14,20 @@ export function AddPokemonPage() {
   const [preview, setPreview] = useState<PokemonPreview | null>(null)
   const [nickname, setNickname] = useState('')
   const [notes, setNotes] = useState('')
+  const [photo, setPhoto] = useState<File | null>(null)
   const [error, setError] = useState<string | null>(null)
+
+  function handlePhotoChange(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0]
+    const problem = file ? validatePhoto(file) : null
+    if (problem) {
+      setError(problem)
+      setPhoto(null)
+    } else {
+      setError(null)
+      setPhoto(file ?? null)
+    }
+  }
 
   async function handleSave(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -74,6 +90,9 @@ export function AddPokemonPage() {
             </label>
             <label>
               Notas <textarea value={notes} onChange={(e) => setNotes(e.target.value)} />
+            </label>
+            <label>
+              Foto (opcional) <input type="file" accept="image/*" onChange={handlePhotoChange} />
             </label>
             <button type="submit">Salvar na Pokédex</button>
           </form>

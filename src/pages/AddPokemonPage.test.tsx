@@ -5,10 +5,12 @@ import { renderPage } from '../test/renderPage'
 import { PIKACHU_ARTWORK, makeEntry, pikachuPreview } from '../test/fixtures'
 import { fetchPokemon } from '../services/pokeapi'
 import { createEntry } from '../services/pokedex'
+import { uploadPhoto } from '../services/storage'
 import { AddPokemonPage } from './AddPokemonPage'
 
 vi.mock('../services/pokeapi')
 vi.mock('../services/pokedex')
+vi.mock('../services/storage')
 
 describe('AddPokemonPage', () => {
   it('buscar um pokémon existente mostra a prévia e o formulário', async () => {
@@ -83,5 +85,28 @@ describe('AddPokemonPage', () => {
 
     expect(await screen.findByRole('alert')).toHaveTextContent('Não foi possível salvar. Tente novamente.')
     expect(screen.queryByTestId('location')).toBeNull()
+  })
+
+  it('foto que não é imagem mostra erro e não é enviada', async () => {
+    const user = userEvent.setup({ applyAccept: false })
+    vi.mocked(fetchPokemon).mockResolvedValue(pikachuPreview)
+    vi.mocked(createEntry).mockResolvedValue(makeEntry())
+
+    renderPage(<AddPokemonPage />, { path: '/adicionar', route: '/adicionar' })
+
+    await user.type(screen.getByLabelText('Nome ou número'), 'pikachu')
+    await user.click(screen.getByRole('button', { name: 'Buscar' }))
+    await screen.findByRole('img', { name: 'pikachu' })
+
+    await user.upload(
+      screen.getByLabelText('Foto (opcional)'),
+      new File(['x'], 'doc.pdf', { type: 'application/pdf' }),
+    )
+    expect(screen.getByRole('alert')).toHaveTextContent('Envie um arquivo de imagem')
+
+    await user.click(screen.getByRole('button', { name: 'Salvar na Pokédex' }))
+
+    expect(uploadPhoto).not.toHaveBeenCalled()
+    expect(createEntry).toHaveBeenCalledWith(expect.objectContaining({ photoUrl: null }))
   })
 })
