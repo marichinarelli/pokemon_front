@@ -1240,7 +1240,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/AddPokemonPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-### [ ] B5 — Busca e filtro na lista
+### [x] B5 — Busca e filtro na lista
 - Objetivo: filtrar a lista por texto (nome ou apelido) e por tipo.
 - Pronto quando: testes de `filterEntries`, `uniqueTypes` e dos filtros na PokedexPage passam.
 - Depende de: B2
