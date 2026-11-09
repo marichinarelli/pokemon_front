@@ -92,10 +92,10 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Tipo: preparação
 - Depende de: —
 - Paralelo: não
-- Arquivos: `package.json` (criar), `package-lock.json` (criar), `index.html` (criar), `tsconfig.json` (criar), `tsconfig.app.json` (criar), `tsconfig.node.json` (criar), `vite.config.ts` (criar), `eslint.config.js` (criar), `.gitignore` (criar), `README.md` (criar), `public/` (criar), `src/main.tsx` (criar), `src/App.tsx` (criar), `src/index.css` (criar), `src/vite-env.d.ts` (criar, se o template gerar)
+- Arquivos: `package.json` (criar), `package-lock.json` (criar), `index.html` (criar), `tsconfig.json` (criar), `tsconfig.app.json` (criar), `tsconfig.node.json` (criar), `vite.config.ts` (criar), `eslint.config.js` (criar), `.gitignore` (editar), `README.md` (criar), `public/` (criar), `src/main.tsx` (criar), `src/App.tsx` (criar), `src/index.css` (criar), `src/vite-env.d.ts` (criar, se o template gerar)
 - Verificação: `npm run build` → termina sem erro e gera `dist/`.
 - Implementação:
-  1. Na raiz do repo (que só tem `.git` e `docs/`), rode `CI=1 npm create vite@6 . -- --template react-ts`. Se o create-vite reclamar que a pasta não está vazia por causa de `docs/`, mova `docs/` temporariamente para fora, rode o comando e devolva `docs/` ao lugar.
+  1. Na raiz do repo (que tem `.git`, `.gitignore` e `docs/`), mova `docs/` e `.gitignore` temporariamente para fora do repo, rode `CI=1 npm create vite@6 . -- --template react-ts` e devolva `docs/` ao lugar. Descarte o `.gitignore` antigo: o gerado pelo Vite já ignora `.DS_Store`. Se o gerado não tiver `.DS_Store`, acrescente essa linha.
   2. `npm install`
   3. `npm install react-router-dom @supabase/supabase-js`
   4. `npm install -D tailwindcss @tailwindcss/vite vitest jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event msw`
