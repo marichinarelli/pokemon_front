@@ -1144,7 +1144,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/lib/supabase.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B4.S4 — photoPathFromUrl extrai o caminho da URL pública
+#### [x] B4.S4 — photoPathFromUrl extrai o caminho da URL pública
 - Tipo: comportamento
 - Depende de: B4.S3
 - Paralelo: não
@@ -1741,3 +1741,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B3.S3 | 1 | haiku | APROVADO |  |
 | B5.S3 | 1 | haiku | APROVADO |  |
 | B4.S2 | 1 | haiku | APROVADO |  |
+| B4.S4 | 1 | haiku | APROVADO |  |
