@@ -673,7 +673,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/types.ts`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B2.S2 — Funções CRUD do service da Pokédex
+#### [~] B2.S2 — Funções CRUD do service da Pokédex
 - Tipo: preparação
 - Depende de: B2.S1
 - Paralelo: não
@@ -780,7 +780,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/types.ts`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B2.S4 — PokemonCard sem apelido e sem foto usa nome e arte oficial
+#### [x] B2.S4 — PokemonCard sem apelido e sem foto usa nome e arte oficial
 - Tipo: comportamento
 - Depende de: B2.S3
 - Paralelo: não
@@ -1724,3 +1724,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B1.S12 | 1 | haiku | APROVADO |  |
 | B2.S3 | 1 | haiku | APROVADO |  |
 | B2.S1 | 1 | haiku | APROVADO | build com TS6133 (import supabase da spec) até B2.S2 |
+| B2.S4 | 1 | haiku | APROVADO | verde de primeira (B2.S3); não-vacuidade provada |
