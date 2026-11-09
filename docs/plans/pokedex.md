@@ -1101,7 +1101,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: nenhum.
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B4.S2 — validatePhoto recusa imagem acima de 10MB e aceita até 10MB
+#### [~] B4.S2 — validatePhoto recusa imagem acima de 10MB e aceita até 10MB
 - Tipo: comportamento
 - Depende de: B4.S1
 - Paralelo: não
@@ -1117,7 +1117,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/lib/validatePhoto.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B4.S3 — buildPhotoPath gera caminho na pasta do usuário
+#### [x] B4.S3 — buildPhotoPath gera caminho na pasta do usuário
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -1737,3 +1737,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B3.S2 | 1 | haiku | APROVADO |  |
 | B5.S2 | 1 | haiku | APROVADO |  |
 | B4.S1 | 1 | haiku | APROVADO |  |
+| B4.S3 | 1 | haiku | APROVADO |  |
