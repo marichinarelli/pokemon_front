@@ -1,11 +1,14 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useAuth } from '../auth/AuthProvider'
 import { getEntry, updateEntry } from '../services/pokedex'
+import { deletePhoto, uploadPhoto } from '../services/storage'
 import type { PokedexEntry } from '../types'
 
 export function EditPokemonPage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const { user } = useAuth()
   const [entry, setEntry] = useState<PokedexEntry | null | undefined>(undefined)
   const [nickname, setNickname] = useState('')
   const [notes, setNotes] = useState('')
@@ -30,11 +33,19 @@ export function EditPokemonPage() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const newPhotoUrl = photo && user ? await uploadPhoto(user.id, photo) : null
     await updateEntry(entry.id, {
       nickname: nickname.trim() || null,
       notes: notes.trim() || null,
-      photoUrl: entry.photoUrl,
+      photoUrl: newPhotoUrl ?? entry.photoUrl,
     })
+    if (newPhotoUrl && entry.photoUrl) {
+      try {
+        await deletePhoto(entry.photoUrl)
+      } catch {
+        /* ignora */
+      }
+    }
     navigate(`/pokemon/${entry.id}`)
   }
 

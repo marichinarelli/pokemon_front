@@ -48,4 +48,23 @@ describe('EditPokemonPage', () => {
     expect(deletePhoto).not.toHaveBeenCalled()
     expect(await screen.findByTestId('location')).toHaveTextContent('/pokemon/entry-1')
   })
+
+  it('salvar com foto nova envia a nova, grava a URL e apaga a antiga', async () => {
+    const user = userEvent.setup()
+    vi.mocked(getEntry).mockResolvedValue(makeEntry({ photoUrl: 'https://cdn.test/antiga.png' }))
+    vi.mocked(uploadPhoto).mockResolvedValue('https://cdn.test/nova.png')
+    vi.mocked(updateEntry).mockResolvedValue(makeEntry())
+    vi.mocked(deletePhoto).mockResolvedValue(undefined)
+
+    renderPage(<EditPokemonPage />, { path: '/pokemon/:id/editar', route: '/pokemon/entry-1/editar' })
+
+    const photo = new File(['img'], 'nova.png', { type: 'image/png' })
+    await user.upload(await screen.findByLabelText('Nova foto (opcional)'), photo)
+    await user.click(screen.getByRole('button', { name: 'Salvar alterações' }))
+
+    expect(uploadPhoto).toHaveBeenCalledWith('user-1', photo)
+    expect(updateEntry).toHaveBeenCalledWith('entry-1', expect.objectContaining({ photoUrl: 'https://cdn.test/nova.png' }))
+    expect(deletePhoto).toHaveBeenCalledWith('https://cdn.test/antiga.png')
+    expect(await screen.findByTestId('location')).toHaveTextContent('/pokemon/entry-1')
+  })
 })
