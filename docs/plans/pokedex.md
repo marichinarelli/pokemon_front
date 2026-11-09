@@ -455,7 +455,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/auth/AuthProvider.tsx`, `src/test/fixtures.ts`
 - Aceite: verificação passa; suíte não piora.
 
-#### [~] B1.S4 — Header: botão "Sair" desloga e vai para /login
+#### [x] B1.S4 — Header: botão "Sair" desloga e vai para /login
 - Tipo: comportamento
 - Depende de: B1.S3
 - Paralelo: não
@@ -551,7 +551,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/test/renderPage.tsx`, `src/auth/AuthProvider.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B1.S8 — LoginPage: credenciais inválidas mostram erro
+#### [~] B1.S8 — LoginPage: credenciais inválidas mostram erro
 - Tipo: comportamento
 - Depende de: B1.S7
 - Paralelo: não
@@ -1714,3 +1714,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B1.S2 | 1 | haiku | APROVADO |  |
 | B1.S3 | 1 | haiku | APROVADO |  |
 | B1.S7 | 1 | haiku | APROVADO |  |
+| B1.S4 | 1 | haiku | APROVADO |  |
