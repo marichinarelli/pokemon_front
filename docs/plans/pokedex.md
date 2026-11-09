@@ -649,7 +649,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/auth/AuthProvider.tsx`, `src/auth/ProtectedRoute.tsx`, `src/pages/LoginPage.tsx`, `src/pages/SignupPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-### [ ] B2 — Lista da Pokédex
+### [x] B2 — Lista da Pokédex
 - Objetivo: `/` mostra em grid os pokémons do usuário, com estado vazio e de erro.
 - Pronto quando: testes de `rowToEntry`, PokemonCard, PokedexPage e a rota `/` no App passam.
 - Depende de: B1
