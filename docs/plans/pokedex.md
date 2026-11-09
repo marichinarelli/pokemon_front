@@ -1358,7 +1358,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/PokedexPage.tsx`, `src/lib/filterEntries.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-### [ ] B6 — Detalhe do pokémon
+### [x] B6 — Detalhe do pokémon
 - Objetivo: `/pokemon/:id` mostra imagem, nome, apelido, número, tipos e notas; id inexistente mostra aviso.
 - Pronto quando: testes da PokemonDetailPage e da rota no App passam.
 - Depende de: B2
