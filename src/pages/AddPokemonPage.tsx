@@ -16,16 +16,20 @@ export function AddPokemonPage() {
   async function handleSave(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (preview === null) return
-    await createEntry({
-      pokeapiId: preview.pokeapiId,
-      pokemonName: preview.name,
-      types: preview.types,
-      artworkUrl: preview.artworkUrl,
-      nickname: nickname.trim() || null,
-      photoUrl: null,
-      notes: notes.trim() || null,
-    })
-    navigate('/')
+    try {
+      await createEntry({
+        pokeapiId: preview.pokeapiId,
+        pokemonName: preview.name,
+        types: preview.types,
+        artworkUrl: preview.artworkUrl,
+        nickname: nickname.trim() || null,
+        photoUrl: null,
+        notes: notes.trim() || null,
+      })
+      navigate('/')
+    } catch {
+      setError('Não foi possível salvar. Tente novamente.')
+    }
   }
 
   async function handleSearch(event: FormEvent<HTMLFormElement>) {

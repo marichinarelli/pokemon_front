@@ -67,4 +67,21 @@ describe('AddPokemonPage', () => {
     })
     expect(await screen.findByTestId('location')).toHaveTextContent(/^\/$/)
   })
+
+  it('quando salvar falha mostra erro e continua na página', async () => {
+    const user = userEvent.setup()
+    vi.mocked(fetchPokemon).mockResolvedValue(pikachuPreview)
+    vi.mocked(createEntry).mockRejectedValue(new Error('rede'))
+
+    renderPage(<AddPokemonPage />, { path: '/adicionar', route: '/adicionar' })
+
+    await user.type(screen.getByLabelText('Nome ou número'), 'pikachu')
+    await user.click(screen.getByRole('button', { name: 'Buscar' }))
+    await screen.findByRole('img', { name: 'pikachu' })
+
+    await user.click(screen.getByRole('button', { name: 'Salvar na Pokédex' }))
+
+    expect(await screen.findByRole('alert')).toHaveTextContent('Não foi possível salvar. Tente novamente.')
+    expect(screen.queryByTestId('location')).toBeNull()
+  })
 })
