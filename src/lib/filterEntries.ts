@@ -9,6 +9,7 @@ export function filterEntries(entries: PokedexEntry[], filters: EntryFilters): P
       text === '' ||
       entry.pokemonName.toLowerCase().includes(text) ||
       (entry.nickname ?? '').toLowerCase().includes(text)
-    return matchesText
+    const matchesType = filters.type === '' || entry.types.includes(filters.type)
+    return matchesText && matchesType
   })
 }

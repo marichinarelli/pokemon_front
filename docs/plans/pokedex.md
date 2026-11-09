@@ -1283,7 +1283,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/types.ts`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B5.S2 — filterEntries filtra por tipo e combina com texto
+#### [x] B5.S2 — filterEntries filtra por tipo e combina com texto
 - Tipo: comportamento
 - Depende de: B5.S1
 - Paralelo: não
@@ -1735,3 +1735,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B6.S1 | 1 | haiku | APROVADO |  |
 | B6.S2 | 1 | haiku | APROVADO |  |
 | B3.S2 | 1 | haiku | APROVADO |  |
+| B5.S2 | 1 | haiku | APROVADO |  |
