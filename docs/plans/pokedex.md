@@ -1040,7 +1040,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/AddPokemonPage.tsx`, `src/services/pokedex.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B3.S7 — AddPokemonPage mostra erro quando salvar falha
+#### [~] B3.S7 — AddPokemonPage mostra erro quando salvar falha
 - Tipo: comportamento
 - Depende de: B3.S6
 - Paralelo: não
@@ -1514,7 +1514,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/AddPokemonPage.tsx`, `src/pages/PokemonDetailPage.tsx`, `src/services/pokedex.ts`, `src/test/renderPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B7.S4 — Salvar edição sem foto nova atualiza e volta ao detalhe
+#### [x] B7.S4 — Salvar edição sem foto nova atualiza e volta ao detalhe
 - Tipo: comportamento
 - Depende de: B7.S3
 - Paralelo: não
@@ -1749,3 +1749,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B5.S5 | 1 | haiku | APROVADO |  |
 | B7.S3 | 1 | haiku | APROVADO | TS6133 photo/setError (estados da spec) até B7.S4/S5 |
 | B3.S6 | 1 | haiku | APROVADO | guarda preview===null por tipo |
+| B7.S4 | 1 | haiku | APROVADO |  |

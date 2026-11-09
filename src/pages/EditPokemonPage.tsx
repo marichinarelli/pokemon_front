@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { getEntry } from '../services/pokedex'
+import { useEffect, useState, type FormEvent } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { getEntry, updateEntry } from '../services/pokedex'
 import type { PokedexEntry } from '../types'
 
 export function EditPokemonPage() {
   const { id } = useParams()
+  const navigate = useNavigate()
   const [entry, setEntry] = useState<PokedexEntry | null | undefined>(undefined)
   const [nickname, setNickname] = useState('')
   const [notes, setNotes] = useState('')
@@ -27,10 +28,20 @@ export function EditPokemonPage() {
     return <p>Pokémon não encontrado na sua Pokédex</p>
   }
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    await updateEntry(entry.id, {
+      nickname: nickname.trim() || null,
+      notes: notes.trim() || null,
+      photoUrl: entry.photoUrl,
+    })
+    navigate(`/pokemon/${entry.id}`)
+  }
+
   return (
     <>
       <h1 className="capitalize">{`Editar ${entry.pokemonName}`}</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           Apelido <input value={nickname} onChange={(e) => setNickname(e.target.value)} />
         </label>
