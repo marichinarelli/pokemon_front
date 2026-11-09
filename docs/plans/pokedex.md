@@ -1074,7 +1074,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/App.tsx`, `src/App.test.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-### [ ] B4 — Foto própria
+### [x] B4 — Foto própria
 - Objetivo: no formulário de adicionar, escolher uma foto (qualquer `image/*` até 10MB), enviar ao Storage e gravar a URL.
 - Pronto quando: testes de `validatePhoto`, `buildPhotoPath`, `photoPathFromUrl` e do upload na AddPokemonPage passam.
 - Depende de: B3
@@ -1431,7 +1431,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/App.tsx`, `src/App.test.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-### [ ] B7 — Editar e excluir
+### [x] B7 — Editar e excluir
 - Objetivo: editar apelido, notas e foto (a troca apaga a foto antiga); excluir com confirmação, apagando também a foto.
 - Pronto quando: testes de exclusão na PokemonDetailPage, da EditPokemonPage e da rota de edição no App passam.
 - Depende de: B4, B6
