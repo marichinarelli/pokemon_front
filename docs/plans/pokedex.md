@@ -401,7 +401,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/auth.ts`, `src/types.ts`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B1.S3 — Helper de teste `renderPage`
+#### [x] B1.S3 — Helper de teste `renderPage`
 - Tipo: preparação
 - Depende de: B1.S2
 - Paralelo: não
@@ -1712,3 +1712,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B0.S3 | 1 | haiku | APROVADO | |
 | B1.S1 | 1 | haiku | APROVADO |  |
 | B1.S2 | 1 | haiku | APROVADO |  |
+| B1.S3 | 1 | haiku | APROVADO |  |
