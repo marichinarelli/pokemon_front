@@ -25,11 +25,11 @@ export function EditPokemonPage() {
   }, [id])
 
   if (entry === undefined) {
-    return <p>Carregando...</p>
+    return <p className="dex-number py-12 text-center">Carregando...</p>
   }
 
   if (entry === null) {
-    return <p>Pokémon não encontrado na sua Pokédex</p>
+    return <p className="dex-panel mx-auto max-w-sm p-8 text-center font-semibold">Pokémon não encontrado na sua Pokédex</p>
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -51,20 +51,21 @@ export function EditPokemonPage() {
   }
 
   return (
-    <>
-      <h1 className="capitalize">{`Editar ${entry.pokemonName}`}</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Apelido <input value={nickname} onChange={(e) => setNickname(e.target.value)} />
+    <div className="dex-panel mx-auto max-w-xl p-6">
+      <h1 className="dex-title mb-5 capitalize">{`Editar ${entry.pokemonName}`}</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <label className="dex-field">
+          Apelido <input className="dex-input" value={nickname} onChange={(e) => setNickname(e.target.value)} />
         </label>
-        <label>
-          Notas <textarea value={notes} onChange={(e) => setNotes(e.target.value)} />
+        <label className="dex-field">
+          Notas <textarea className="dex-input min-h-24" value={notes} onChange={(e) => setNotes(e.target.value)} />
         </label>
-        <label>
+        <label className="dex-field">
           Nova foto (opcional){' '}
           <input
             type="file"
             accept="image/*"
+            className="dex-input"
             onChange={(e) => {
               const file = e.target.files?.[0] ?? null
               const problem = file ? validatePhoto(file) : null
@@ -78,10 +79,12 @@ export function EditPokemonPage() {
             }}
           />
         </label>
-        <button type="submit">Salvar alterações</button>
-        <Link to={`/pokemon/${entry.id}`}>Cancelar</Link>
+        {error && <p role="alert" className="dex-alert">{error}</p>}
+        <div className="flex flex-wrap gap-2 pt-1">
+          <button type="submit" className="dex-btn dex-btn-green">Salvar alterações</button>
+          <Link to={`/pokemon/${entry.id}`} className="dex-btn dex-btn-ghost">Cancelar</Link>
+        </div>
       </form>
-      {error && <p role="alert">{error}</p>}
-    </>
+    </div>
   )
 }

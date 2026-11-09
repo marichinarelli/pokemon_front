@@ -1,11 +1,18 @@
 export const TYPE_COLORS: Record<string, string> = {
-  normal: 'bg-stone-400', fire: 'bg-orange-500', water: 'bg-blue-500', electric: 'bg-yellow-400',
-  grass: 'bg-green-500', ice: 'bg-cyan-300', fighting: 'bg-red-700', poison: 'bg-purple-500',
-  ground: 'bg-amber-600', flying: 'bg-indigo-300', psychic: 'bg-pink-500', bug: 'bg-lime-500',
-  rock: 'bg-yellow-700', ghost: 'bg-violet-700', dragon: 'bg-indigo-700', dark: 'bg-neutral-700',
-  steel: 'bg-slate-400', fairy: 'bg-pink-300',
+  normal: '#a8a77a', fire: '#ee8130', water: '#6390f0', electric: '#e5b800',
+  grass: '#4caf50', ice: '#5fc9c4', fighting: '#c22e28', poison: '#a33ea1',
+  ground: '#d4a843', flying: '#8f7ce8', psychic: '#f95587', bug: '#8fa31a',
+  rock: '#b6a136', ghost: '#735797', dragon: '#6f35fc', dark: '#705746',
+  steel: '#8a8aa6', fairy: '#d685ad',
 }
 
 export function typeColor(type: string): string {
-  return TYPE_COLORS[type] ?? 'bg-gray-400'
+  return TYPE_COLORS[type] ?? '#9aa3ab'
+}
+
+/** Fundo suave na cor do tipo principal, para a área da arte. */
+export function typeBackground(types: string[]): string {
+  const main = typeColor(types[0] ?? '')
+  const second = typeColor(types[1] ?? types[0] ?? '')
+  return `linear-gradient(135deg, ${main} 0%, ${second} 100%)`
 }
