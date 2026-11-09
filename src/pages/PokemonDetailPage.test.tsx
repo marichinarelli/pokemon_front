@@ -45,6 +45,20 @@ describe('PokemonDetailPage', () => {
     expect(await screen.findByTestId('location')).toHaveTextContent(/^\/$/)
   })
 
+  it('excluir cancelado não apaga nada e continua no detalhe', async () => {
+    const user = userEvent.setup()
+    vi.mocked(getEntry).mockResolvedValue(makeEntry({ nickname: 'Sparky' }))
+    vi.spyOn(window, 'confirm').mockReturnValue(false)
+
+    renderPage(<PokemonDetailPage />, { path: '/pokemon/:id', route: '/pokemon/entry-1' })
+
+    await user.click(await screen.findByRole('button', { name: 'Excluir' }))
+
+    expect(deleteEntry).not.toHaveBeenCalled()
+    expect(deletePhoto).not.toHaveBeenCalled()
+    expect(screen.getByRole('heading', { name: 'Sparky' })).toBeInTheDocument()
+  })
+
   it('id inexistente mostra aviso e link para voltar', async () => {
     vi.mocked(getEntry).mockResolvedValue(null)
 

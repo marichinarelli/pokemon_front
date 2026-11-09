@@ -48,6 +48,8 @@
   4. criar o usuário de teste;
   5. preencher `.env.local`.
 
+- Ajuste 2026-11-09 (decisão do usuário): nos testes de foto inválida (B4.S6, B7.S6) o alerta é conferido antes do clique em salvar, porque o salvar navega para outra página.
+
 ## Fora de escopo
 - Recuperação de senha, login social, confirmação de email.
 - Paginação, cache (React Query etc.), modo offline.
@@ -1193,7 +1195,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/storage.ts`
 - Aceite: verificação passa; suíte não piora.
 
-#### [!] B4.S6 — AddPokemonPage recusa foto inválida e salva sem foto
+#### [~] B4.S6 — AddPokemonPage recusa foto inválida e salva sem foto
 - Tipo: comportamento
 - Depende de: B4.S2, B4.S5, B3.S8
 - Paralelo: não
@@ -1207,10 +1209,10 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
     - `fetchPokemon` resolve `pikachuPreview` e `createEntry` resolve `makeEntry()`;
     - `const user = userEvent.setup({ applyAccept: false })`;
     - render e busca `pikachu`.
-  - Quando: `await user.upload(screen.getByLabelText('Foto (opcional)'), new File(['x'], 'doc.pdf', { type: 'application/pdf' }))`; depois clica em `Salvar na Pokédex`.
+  - Quando: `await user.upload(screen.getByLabelText('Foto (opcional)'), new File(['x'], 'doc.pdf', { type: 'application/pdf' }))`; confere o alerta (abaixo); depois clica em `Salvar na Pokédex`.
   - Então:
-    - `getByRole('alert')` tem o texto `Envie um arquivo de imagem`;
-    - `uploadPhoto` não foi chamado;
+    - ANTES do clique em salvar (logo após o upload): `getByRole('alert')` tem o texto `Envie um arquivo de imagem`;
+    - depois do clique: `uploadPhoto` não foi chamado;
     - `createEntry` foi chamado com `expect.objectContaining({ photoUrl: null })`.
 - Implementação:
   - No form de salvar, adicione `<label>Foto (opcional) <input type="file" accept="image/*" /></label>`.
@@ -1469,7 +1471,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/PokemonDetailPage.tsx`, `src/services/storage.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B7.S2 — Excluir cancelado não remove nada
+#### [x] B7.S2 — Excluir cancelado não remove nada
 - Tipo: comportamento
 - Depende de: B7.S1
 - Paralelo: não
@@ -1575,7 +1577,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/EditPokemonPage.tsx`, `src/services/storage.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [!] B7.S6 — Edição recusa foto inválida
+#### [~] B7.S6 — Edição recusa foto inválida
 - Tipo: comportamento
 - Depende de: B7.S5
 - Paralelo: não
@@ -1585,10 +1587,10 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
   - Nome: `foto nova que não é imagem mostra erro e não é enviada`
   - Tipo: integração
   - Dado: `getEntry` resolve `makeEntry({ photoUrl: 'https://cdn.test/antiga.png' })`; `updateEntry` resolve `makeEntry()`; `const user = userEvent.setup({ applyAccept: false })`; render.
-  - Quando: faz upload de `new File(['x'], 'doc.pdf', { type: 'application/pdf' })` em `Nova foto (opcional)` e clica em `Salvar alterações`.
+  - Quando: faz upload de `new File(['x'], 'doc.pdf', { type: 'application/pdf' })` em `Nova foto (opcional)`; confere o alerta (abaixo); depois clica em `Salvar alterações`.
   - Então:
-    - `getByRole('alert')` tem o texto `Envie um arquivo de imagem`;
-    - `uploadPhoto` não foi chamado;
+    - ANTES do clique em salvar (logo após o upload): `getByRole('alert')` tem o texto `Envie um arquivo de imagem`;
+    - depois do clique: `uploadPhoto` não foi chamado;
     - `updateEntry` foi chamado com `('entry-1', expect.objectContaining({ photoUrl: 'https://cdn.test/antiga.png' }))`.
 - Implementação: no `onChange` da foto, valide igual à AddPokemonPage: `const problem = file ? validatePhoto(file) : null`.
   - Se houver `problem`: `setError(problem)` e `setPhoto(null)`.
@@ -1757,3 +1759,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B7.S6 | 1 | haiku | BLOQUEADO | spec contraditória: alert após "Salvar alterações" some porque o submit navega para o detalhe |
 | B4.S6 | 1 | haiku | BLOQUEADO | mesma contradição do B7.S6: alert após "Salvar na Pokédex" some porque o submit navega para / |
 | B7.S1 | 1 | haiku | APROVADO | guarda !entry por tipo |
+| B7.S2 | 1 | haiku | APROVADO | verde de primeira (B7.S1); não-vacuidade provada |
