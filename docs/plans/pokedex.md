@@ -604,7 +604,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/SignupPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B1.S11 — SignupPage: erro do serviço aparece na tela
+#### [x] B1.S11 — SignupPage: erro do serviço aparece na tela
 - Tipo: comportamento
 - Depende de: B1.S10
 - Paralelo: não
@@ -1720,3 +1720,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B1.S5 | 1 | haiku | APROVADO |  |
 | B1.S10 | 1 | haiku | APROVADO |  |
 | B1.S6 | 1 | haiku | APROVADO | verde de primeira (coberto pelo B1.S5) |
+| B1.S11 | 1 | haiku | APROVADO |  |

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderPage } from '../test/renderPage'
@@ -27,5 +27,22 @@ describe('SignupPage', () => {
 
     expect(await screen.findByRole('alert')).toHaveTextContent('A senha precisa ter pelo menos 6 caracteres')
     expect(auth.signUp).not.toHaveBeenCalled()
+  })
+
+  it('quando o cadastro falha mostra a mensagem do erro', async () => {
+    const user = userEvent.setup()
+    renderPage(<SignupPage />, {
+      path: '/cadastro',
+      route: '/cadastro',
+      user: null,
+      auth: { signUp: vi.fn().mockRejectedValue(new Error('Este email já está cadastrado')) },
+    })
+
+    await user.type(screen.getByLabelText('Email'), 'misty@cerulean.com')
+    await user.type(screen.getByLabelText('Senha'), 'staryu123')
+    await user.click(screen.getByRole('button', { name: 'Criar conta' }))
+
+    expect(await screen.findByRole('alert')).toHaveTextContent('Este email já está cadastrado')
+    expect(screen.queryByTestId('location')).toBeNull()
   })
 })

@@ -15,8 +15,12 @@ export function SignupPage() {
       setError('A senha precisa ter pelo menos 6 caracteres')
       return
     }
-    await signUp(email, password)
-    navigate('/')
+    try {
+      await signUp(email, password)
+      navigate('/')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Não foi possível criar a conta')
+    }
   }
 
   return (
