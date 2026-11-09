@@ -1625,12 +1625,12 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
   4. criar o usuário de teste em Auth → Users;
   5. preencher `.env.local` com `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `E2E_EMAIL` e `E2E_PASSWORD`.
 
-#### [ ] B8.S1 — Instalar e configurar Playwright
+#### [x] B8.S1 — Instalar e configurar Playwright
 - Tipo: preparação
 - Depende de: —
 - Paralelo: não
 - Arquivos: `package.json` (editar), `package-lock.json` (editar), `playwright.config.ts` (criar), `e2e/fixtures/foto.png` (criar), `.env.example` (editar), `.gitignore` (editar)
-- Verificação: `npx playwright test --list` → sai com código 0 (sem testes ainda, "Total: 0 tests" ou equivalente); `npm test` → verde.
+- Verificação: `npx playwright test --list --pass-with-no-tests` → sai com código 0 (sem testes ainda; ajuste do orquestrador: sem a flag o Playwright sai com 1 em "No tests found"); `npm test` → verde.
 - Implementação:
   1. `npm install -D @playwright/test` e `npx playwright install chromium`.
   2. `package.json` → em `scripts`, adicione `"e2e": "playwright test"`.
@@ -1764,3 +1764,5 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B4.S6 | 2 | haiku | APROVADO | spec ajustada pelo usuário: alerta antes do clique; TS6133 até B4.S7 |
 | B7.S7 | 1 | haiku | APROVADO |  |
 | B4.S7 | 1 | haiku | APROVADO |  |
+| B8.S1 | 1 | haiku | BLOQUEADO | Verificação: playwright --list sai 1 sem testes; orquestrador corrigiu para --pass-with-no-tests |
+| B8.S1 | 1 | haiku | APROVADO | após ajuste da Verificação |
