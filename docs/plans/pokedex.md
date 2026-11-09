@@ -1193,7 +1193,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/storage.ts`
 - Aceite: verificação passa; suíte não piora.
 
-#### [ ] B4.S6 — AddPokemonPage recusa foto inválida e salva sem foto
+#### [~] B4.S6 — AddPokemonPage recusa foto inválida e salva sem foto
 - Tipo: comportamento
 - Depende de: B4.S2, B4.S5, B3.S8
 - Paralelo: não
@@ -1413,7 +1413,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/PokemonDetailPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B6.S3 — App: rota /pokemon/:id
+#### [x] B6.S3 — App: rota /pokemon/:id
 - Tipo: comportamento
 - Depende de: B6.S2, B3.S8
 - Paralelo: não
@@ -1753,3 +1753,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B3.S7 | 1 | haiku | APROVADO |  |
 | B7.S5 | 1 | haiku | APROVADO | useAuth adicionado (spec assume user) |
 | B3.S8 | 1 | haiku | APROVADO |  |
+| B6.S3 | 1 | haiku | APROVADO |  |

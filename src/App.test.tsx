@@ -4,8 +4,8 @@ import { MemoryRouter } from 'react-router-dom'
 import { AuthProvider } from './auth/AuthProvider'
 import { App } from './App'
 import { getCurrentUser, onAuthChange } from './services/auth'
-import { listEntries } from './services/pokedex'
-import { testUser } from './test/fixtures'
+import { getEntry, listEntries } from './services/pokedex'
+import { makeEntry, testUser } from './test/fixtures'
 
 vi.mock('./services/auth')
 vi.mock('./services/pokedex')
@@ -56,5 +56,21 @@ describe('App', () => {
     )
 
     expect(await screen.findByRole('heading', { name: 'Adicionar pokémon' })).toBeInTheDocument()
+  })
+
+  it('com sessão a rota /pokemon/:id mostra o detalhe', async () => {
+    vi.mocked(getCurrentUser).mockResolvedValue(testUser)
+    vi.mocked(onAuthChange).mockReturnValue(() => {})
+    vi.mocked(getEntry).mockResolvedValue(makeEntry({ nickname: 'Sparky' }))
+
+    render(
+      <MemoryRouter initialEntries={['/pokemon/entry-1']}>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    expect(await screen.findByRole('heading', { name: 'Sparky' })).toBeInTheDocument()
   })
 })

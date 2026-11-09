@@ -4,6 +4,7 @@ import { SignupPage } from './pages/SignupPage'
 import { ProtectedRoute } from './auth/ProtectedRoute'
 import { PokedexPage } from './pages/PokedexPage'
 import { AddPokemonPage } from './pages/AddPokemonPage'
+import { PokemonDetailPage } from './pages/PokemonDetailPage'
 
 export function App() {
   return (
@@ -13,6 +14,7 @@ export function App() {
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<PokedexPage />} />
         <Route path="/adicionar" element={<AddPokemonPage />} />
+        <Route path="/pokemon/:id" element={<PokemonDetailPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
