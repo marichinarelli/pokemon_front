@@ -2,8 +2,9 @@ import { describe, it, expect, vi } from 'vitest'
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderPage } from '../test/renderPage'
-import { PIKACHU_ARTWORK, pikachuPreview } from '../test/fixtures'
+import { PIKACHU_ARTWORK, makeEntry, pikachuPreview } from '../test/fixtures'
 import { fetchPokemon } from '../services/pokeapi'
+import { createEntry } from '../services/pokedex'
 import { AddPokemonPage } from './AddPokemonPage'
 
 vi.mock('../services/pokeapi')
@@ -38,5 +39,32 @@ describe('AddPokemonPage', () => {
 
     expect(await screen.findByRole('alert')).toHaveTextContent('Pokémon não encontrado')
     expect(screen.queryByRole('button', { name: 'Salvar na Pokédex' })).toBeNull()
+  })
+
+  it('salvar cria a entrada com os dados do pokémon e volta para a lista', async () => {
+    const user = userEvent.setup()
+    vi.mocked(fetchPokemon).mockResolvedValue(pikachuPreview)
+    vi.mocked(createEntry).mockResolvedValue(makeEntry())
+
+    renderPage(<AddPokemonPage />, { path: '/adicionar', route: '/adicionar' })
+
+    await user.type(screen.getByLabelText('Nome ou número'), 'pikachu')
+    await user.click(screen.getByRole('button', { name: 'Buscar' }))
+    await screen.findByRole('img', { name: 'pikachu' })
+
+    await user.type(screen.getByLabelText('Apelido'), 'Sparky')
+    await user.type(screen.getByLabelText('Notas'), 'Meu primeiro')
+    await user.click(screen.getByRole('button', { name: 'Salvar na Pokédex' }))
+
+    expect(createEntry).toHaveBeenCalledWith({
+      pokeapiId: 25,
+      pokemonName: 'pikachu',
+      types: ['electric'],
+      artworkUrl: PIKACHU_ARTWORK,
+      nickname: 'Sparky',
+      photoUrl: null,
+      notes: 'Meu primeiro',
+    })
+    expect(await screen.findByTestId('location')).toHaveTextContent(/^\/$/)
   })
 })

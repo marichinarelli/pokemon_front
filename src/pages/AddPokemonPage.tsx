@@ -1,14 +1,32 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { fetchPokemon } from '../services/pokeapi'
+import { createEntry } from '../services/pokedex'
 import type { PokemonPreview } from '../types'
 
 export function AddPokemonPage() {
+  const navigate = useNavigate()
   const [query, setQuery] = useState('')
   const [preview, setPreview] = useState<PokemonPreview | null>(null)
   const [nickname, setNickname] = useState('')
   const [notes, setNotes] = useState('')
   const [error, setError] = useState<string | null>(null)
+
+  async function handleSave(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (preview === null) return
+    await createEntry({
+      pokeapiId: preview.pokeapiId,
+      pokemonName: preview.name,
+      types: preview.types,
+      artworkUrl: preview.artworkUrl,
+      nickname: nickname.trim() || null,
+      photoUrl: null,
+      notes: notes.trim() || null,
+    })
+    navigate('/')
+  }
 
   async function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -46,7 +64,7 @@ export function AddPokemonPage() {
               <li key={type}>{type}</li>
             ))}
           </ul>
-          <form>
+          <form onSubmit={handleSave}>
             <label>
               Apelido <input value={nickname} onChange={(e) => setNickname(e.target.value)} />
             </label>
