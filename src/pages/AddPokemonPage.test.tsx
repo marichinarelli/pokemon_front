@@ -26,4 +26,17 @@ describe('AddPokemonPage', () => {
     expect(screen.getByLabelText('Notas')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Salvar na Pokédex' })).toBeInTheDocument()
   })
+
+  it('buscar um pokémon inexistente mostra Pokémon não encontrado', async () => {
+    const user = userEvent.setup()
+    vi.mocked(fetchPokemon).mockResolvedValue(null)
+
+    renderPage(<AddPokemonPage />, { path: '/adicionar', route: '/adicionar' })
+
+    await user.type(screen.getByLabelText('Nome ou número'), 'naoexiste')
+    await user.click(screen.getByRole('button', { name: 'Buscar' }))
+
+    expect(await screen.findByRole('alert')).toHaveTextContent('Pokémon não encontrado')
+    expect(screen.queryByRole('button', { name: 'Salvar na Pokédex' })).toBeNull()
+  })
 })

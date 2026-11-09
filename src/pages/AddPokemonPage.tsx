@@ -13,8 +13,18 @@ export function AddPokemonPage() {
   async function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setError(null)
-    const result = await fetchPokemon(query)
-    setPreview(result)
+    try {
+      const result = await fetchPokemon(query)
+      if (result === null) {
+        setError('Pokémon não encontrado')
+        setPreview(null)
+        return
+      }
+      setPreview(result)
+    } catch {
+      setError('Não foi possível buscar agora. Tente novamente.')
+      setPreview(null)
+    }
   }
 
   return (
