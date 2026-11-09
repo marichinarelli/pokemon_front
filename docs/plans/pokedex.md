@@ -878,7 +878,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/App.tsx`, `src/App.test.tsx`, `src/pages/PokedexPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-### [ ] B3 — Adicionar pokémon da PokéAPI
+### [x] B3 — Adicionar pokémon da PokéAPI
 - Objetivo: em `/adicionar`, buscar um pokémon por nome ou número, ver a prévia, preencher apelido e notas e salvar na coleção.
 - Pronto quando: testes do service `fetchPokemon` (com MSW) e da AddPokemonPage passam, e a rota `/adicionar` está registrada.
 - Depende de: B2
