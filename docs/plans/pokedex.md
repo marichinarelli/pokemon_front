@@ -474,7 +474,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/auth/AuthProvider.tsx`, `src/test/renderPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B1.S5 — ProtectedRoute redireciona para /login sem usuário
+#### [~] B1.S5 — ProtectedRoute redireciona para /login sem usuário
 - Tipo: comportamento
 - Depende de: B1.S4
 - Paralelo: não
@@ -567,7 +567,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/LoginPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B1.S9 — SignupPage: cadastro válido vai para "/"
+#### [x] B1.S9 — SignupPage: cadastro válido vai para "/"
 - Tipo: comportamento
 - Depende de: B1.S3
 - Paralelo: sim
@@ -1715,3 +1715,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B1.S3 | 1 | haiku | APROVADO |  |
 | B1.S7 | 1 | haiku | APROVADO |  |
 | B1.S4 | 1 | haiku | APROVADO |  |
+| B1.S9 | 1 | haiku | APROVADO |  |
