@@ -1397,7 +1397,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/pokedex.ts`, `src/components/PokemonCard.tsx`, `src/lib/typeColors.ts`, `src/test/renderPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B6.S2 — PokemonDetailPage avisa quando a entrada não existe
+#### [x] B6.S2 — PokemonDetailPage avisa quando a entrada não existe
 - Tipo: comportamento
 - Depende de: B6.S1
 - Paralelo: não
@@ -1733,3 +1733,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B5.S1 | 1 | haiku | APROVADO |  |
 | B3.S1 | 1 | haiku | APROVADO |  |
 | B6.S1 | 1 | haiku | APROVADO |  |
+| B6.S2 | 1 | haiku | APROVADO |  |

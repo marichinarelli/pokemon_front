@@ -25,4 +25,13 @@ describe('PokemonDetailPage', () => {
     expect(screen.getByRole('img', { name: 'Sparky' })).toHaveAttribute('src', 'https://example.com/foto.jpg')
     expect(screen.getByRole('link', { name: 'Editar' })).toHaveAttribute('href', '/pokemon/entry-1/editar')
   })
+
+  it('id inexistente mostra aviso e link para voltar', async () => {
+    vi.mocked(getEntry).mockResolvedValue(null)
+
+    renderPage(<PokemonDetailPage />, { path: '/pokemon/:id', route: '/pokemon/nao-existe' })
+
+    expect(await screen.findByText('Pokémon não encontrado na sua Pokédex')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Voltar para a Pokédex' })).toHaveAttribute('href', '/')
+  })
 })

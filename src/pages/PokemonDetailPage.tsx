@@ -17,7 +17,12 @@ export function PokemonDetailPage() {
   }
 
   if (entry === null) {
-    return null
+    return (
+      <>
+        <p>Pokémon não encontrado na sua Pokédex</p>
+        <Link to="/">Voltar para a Pokédex</Link>
+      </>
+    )
   }
 
   const title = entry.nickname ?? entry.pokemonName
