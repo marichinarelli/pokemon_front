@@ -930,7 +930,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/types.ts`, `src/test/msw.ts`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B3.S2 — fetchPokemon devolve null quando não encontra
+#### [~] B3.S2 — fetchPokemon devolve null quando não encontra
 - Tipo: comportamento
 - Depende de: B3.S1
 - Paralelo: não
@@ -1363,7 +1363,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes da PokemonDetailPage e da rota no App passam.
 - Depende de: B2
 
-#### [~] B6.S1 — PokemonDetailPage mostra os dados da entrada
+#### [x] B6.S1 — PokemonDetailPage mostra os dados da entrada
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -1732,3 +1732,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B2.S8 | 1 | haiku | APROVADO |  |
 | B5.S1 | 1 | haiku | APROVADO |  |
 | B3.S1 | 1 | haiku | APROVADO |  |
+| B6.S1 | 1 | haiku | APROVADO |  |
