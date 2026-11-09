@@ -16,4 +16,16 @@ describe('SignupPage', () => {
     expect(auth.signUp).toHaveBeenCalledWith('misty@cerulean.com', 'staryu123')
     expect(await screen.findByTestId('location')).toHaveTextContent('/')
   })
+
+  it('com senha menor que 6 caracteres mostra erro e não cadastra', async () => {
+    const user = userEvent.setup()
+    const { auth } = renderPage(<SignupPage />, { path: '/cadastro', route: '/cadastro', user: null })
+
+    await user.type(screen.getByLabelText('Email'), 'misty@cerulean.com')
+    await user.type(screen.getByLabelText('Senha'), '12345')
+    await user.click(screen.getByRole('button', { name: 'Criar conta' }))
+
+    expect(await screen.findByRole('alert')).toHaveTextContent('A senha precisa ter pelo menos 6 caracteres')
+    expect(auth.signUp).not.toHaveBeenCalled()
+  })
 })

@@ -7,9 +7,14 @@ export function SignupPage() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (password.length < 6) {
+      setError('A senha precisa ter pelo menos 6 caracteres')
+      return
+    }
     await signUp(email, password)
     navigate('/')
   }
@@ -26,6 +31,7 @@ export function SignupPage() {
         </label>
         <button type="submit">Criar conta</button>
       </form>
+      {error && <p role="alert">{error}</p>}
       <Link to="/login">Já tenho conta</Link>
     </>
   )
