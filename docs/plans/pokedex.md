@@ -1056,7 +1056,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/AddPokemonPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B3.S8 — App: rota /adicionar
+#### [x] B3.S8 — App: rota /adicionar
 - Tipo: comportamento
 - Depende de: B3.S7, B2.S8
 - Paralelo: não
@@ -1575,7 +1575,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/EditPokemonPage.tsx`, `src/services/storage.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B7.S6 — Edição recusa foto inválida
+#### [~] B7.S6 — Edição recusa foto inválida
 - Tipo: comportamento
 - Depende de: B7.S5
 - Paralelo: não
@@ -1752,3 +1752,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B7.S4 | 1 | haiku | APROVADO |  |
 | B3.S7 | 1 | haiku | APROVADO |  |
 | B7.S5 | 1 | haiku | APROVADO | useAuth adicionado (spec assume user) |
+| B3.S8 | 1 | haiku | APROVADO |  |

@@ -42,4 +42,19 @@ describe('App', () => {
     expect(await screen.findByText('Sua Pokédex está vazia')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Sair' })).toBeInTheDocument()
   })
+
+  it('com sessão a rota /adicionar mostra a tela de adicionar', async () => {
+    vi.mocked(getCurrentUser).mockResolvedValue(testUser)
+    vi.mocked(onAuthChange).mockReturnValue(() => {})
+
+    render(
+      <MemoryRouter initialEntries={['/adicionar']}>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    expect(await screen.findByRole('heading', { name: 'Adicionar pokémon' })).toBeInTheDocument()
+  })
 })
