@@ -8,6 +8,8 @@ try {
 
 export default defineConfig({
   testDir: 'e2e',
+  // E2E fala com Supabase e PokéAPI reais: picos de rede passam dos 5s padrão
+  expect: { timeout: 15_000 },
   use: { baseURL: 'http://localhost:5173' },
   webServer: { command: 'npm run dev', url: 'http://localhost:5173', reuseExistingServer: true },
 })
