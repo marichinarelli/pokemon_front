@@ -4,6 +4,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { AuthContext } from './AuthProvider'
 import { ProtectedRoute } from './ProtectedRoute'
 import type { AppUser } from '../types'
+import { testUser } from '../test/fixtures'
 
 function renderProtected(user: AppUser | null) {
   return render(
@@ -26,5 +27,13 @@ describe('ProtectedRoute', () => {
 
     expect(screen.getByText('tela de login')).toBeInTheDocument()
     expect(screen.queryByText('conteúdo protegido')).toBeNull()
+  })
+
+  it('com usuário mostra o header e o conteúdo protegido', () => {
+    renderProtected(testUser)
+
+    expect(screen.getByText('conteúdo protegido')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Sair' })).toBeInTheDocument()
+    expect(screen.getByText('ash@pallet.com')).toBeInTheDocument()
   })
 })
