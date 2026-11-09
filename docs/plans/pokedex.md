@@ -796,7 +796,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/components/PokemonCard.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B2.S5 — PokedexPage lista os pokémons do usuário
+#### [x] B2.S5 — PokedexPage lista os pokémons do usuário
 - Tipo: comportamento
 - Depende de: B2.S2, B2.S4
 - Paralelo: não
@@ -1726,3 +1726,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B2.S1 | 1 | haiku | APROVADO | build com TS6133 (import supabase da spec) até B2.S2 |
 | B2.S4 | 1 | haiku | APROVADO | verde de primeira (B2.S3); não-vacuidade provada |
 | B2.S2 | 1 | haiku | APROVADO | import type ampliado (NewPokedexEntry, PokedexEntryUpdate) para compilar |
+| B2.S5 | 1 | haiku | APROVADO |  |
