@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage } from './pages/LoginPage'
 import { SignupPage } from './pages/SignupPage'
 import { ProtectedRoute } from './auth/ProtectedRoute'
+import { PokedexPage } from './pages/PokedexPage'
 
 export function App() {
   return (
@@ -9,7 +10,7 @@ export function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/cadastro" element={<SignupPage />} />
       <Route element={<ProtectedRoute />}>
-        <Route path="/" element={<h1>Minha Pokédex</h1>} />
+        <Route path="/" element={<PokedexPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
