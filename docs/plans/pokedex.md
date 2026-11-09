@@ -369,7 +369,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/lib/supabase.ts`, `src/types.ts`
 - Aceite: verificação passa; suíte não piora.
 
-#### [ ] B1.S2 — AuthProvider expõe o usuário da sessão atual
+#### [x] B1.S2 — AuthProvider expõe o usuário da sessão atual
 - Tipo: comportamento
 - Depende de: B1.S1
 - Paralelo: não
@@ -1711,3 +1711,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B0.S4 | 1 | haiku | APROVADO | |
 | B0.S3 | 1 | haiku | APROVADO | |
 | B1.S1 | 1 | haiku | APROVADO |  |
+| B1.S2 | 1 | haiku | APROVADO |  |
