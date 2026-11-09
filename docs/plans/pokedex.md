@@ -1223,7 +1223,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/AddPokemonPage.tsx`, `src/lib/validatePhoto.ts`, `src/services/storage.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B4.S7 — AddPokemonPage envia a foto e salva a URL
+#### [x] B4.S7 — AddPokemonPage envia a foto e salva a URL
 - Tipo: comportamento
 - Depende de: B4.S6
 - Paralelo: não
@@ -1763,3 +1763,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B7.S6 | 2 | haiku | APROVADO | spec ajustada pelo usuário: alerta antes do clique |
 | B4.S6 | 2 | haiku | APROVADO | spec ajustada pelo usuário: alerta antes do clique; TS6133 até B4.S7 |
 | B7.S7 | 1 | haiku | APROVADO |  |
+| B4.S7 | 1 | haiku | APROVADO |  |

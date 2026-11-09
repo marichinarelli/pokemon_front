@@ -10,6 +10,7 @@ import type { PokemonPreview } from '../types'
 
 export function AddPokemonPage() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const [query, setQuery] = useState('')
   const [preview, setPreview] = useState<PokemonPreview | null>(null)
   const [nickname, setNickname] = useState('')
@@ -33,13 +34,14 @@ export function AddPokemonPage() {
     event.preventDefault()
     if (preview === null) return
     try {
+      const photoUrl = photo && user ? await uploadPhoto(user.id, photo) : null
       await createEntry({
         pokeapiId: preview.pokeapiId,
         pokemonName: preview.name,
         types: preview.types,
         artworkUrl: preview.artworkUrl,
         nickname: nickname.trim() || null,
-        photoUrl: null,
+        photoUrl,
         notes: notes.trim() || null,
       })
       navigate('/')

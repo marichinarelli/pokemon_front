@@ -109,4 +109,27 @@ describe('AddPokemonPage', () => {
     expect(uploadPhoto).not.toHaveBeenCalled()
     expect(createEntry).toHaveBeenCalledWith(expect.objectContaining({ photoUrl: null }))
   })
+
+  it('foto válida é enviada e a URL vai para a entrada', async () => {
+    const user = userEvent.setup()
+    vi.mocked(fetchPokemon).mockResolvedValue(pikachuPreview)
+    vi.mocked(createEntry).mockResolvedValue(makeEntry())
+    vi.mocked(uploadPhoto).mockResolvedValue('https://cdn.test/user-1/abc.png')
+
+    renderPage(<AddPokemonPage />, { path: '/adicionar', route: '/adicionar' })
+
+    await user.type(screen.getByLabelText('Nome ou número'), 'pikachu')
+    await user.click(screen.getByRole('button', { name: 'Buscar' }))
+    await screen.findByRole('img', { name: 'pikachu' })
+
+    const photo = new File(['img'], 'foto.png', { type: 'image/png' })
+    await user.upload(screen.getByLabelText('Foto (opcional)'), photo)
+    await user.click(screen.getByRole('button', { name: 'Salvar na Pokédex' }))
+
+    expect(uploadPhoto).toHaveBeenCalledWith('user-1', photo)
+    expect(createEntry).toHaveBeenCalledWith(
+      expect.objectContaining({ photoUrl: 'https://cdn.test/user-1/abc.png' }),
+    )
+    expect(await screen.findByTestId('location')).toHaveTextContent(/^\/$/)
+  })
 })
