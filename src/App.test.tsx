@@ -73,4 +73,20 @@ describe('App', () => {
 
     expect(await screen.findByRole('heading', { name: 'Sparky' })).toBeInTheDocument()
   })
+
+  it('com sessão a rota /pokemon/:id/editar mostra a edição', async () => {
+    vi.mocked(getCurrentUser).mockResolvedValue(testUser)
+    vi.mocked(onAuthChange).mockReturnValue(() => {})
+    vi.mocked(getEntry).mockResolvedValue(makeEntry())
+
+    render(
+      <MemoryRouter initialEntries={['/pokemon/entry-1/editar']}>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    expect(await screen.findByRole('heading', { name: 'Editar pikachu' })).toBeInTheDocument()
+  })
 })

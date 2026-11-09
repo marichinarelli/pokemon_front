@@ -5,6 +5,7 @@ import { ProtectedRoute } from './auth/ProtectedRoute'
 import { PokedexPage } from './pages/PokedexPage'
 import { AddPokemonPage } from './pages/AddPokemonPage'
 import { PokemonDetailPage } from './pages/PokemonDetailPage'
+import { EditPokemonPage } from './pages/EditPokemonPage'
 
 export function App() {
   return (
@@ -15,6 +16,7 @@ export function App() {
         <Route path="/" element={<PokedexPage />} />
         <Route path="/adicionar" element={<AddPokemonPage />} />
         <Route path="/pokemon/:id" element={<PokemonDetailPage />} />
+        <Route path="/pokemon/:id/editar" element={<EditPokemonPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
