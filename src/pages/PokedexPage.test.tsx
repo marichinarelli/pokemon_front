@@ -30,4 +30,12 @@ describe('PokedexPage', () => {
     expect(await screen.findByText('Sua Pokédex está vazia')).toBeInTheDocument()
     expect(screen.queryByRole('list')).toBeNull()
   })
+
+  it('quando a lista falha mostra mensagem de erro', async () => {
+    vi.mocked(listEntries).mockRejectedValue(new Error('rede'))
+
+    renderPage(<PokedexPage />, { path: '/', route: '/' })
+
+    expect(await screen.findByRole('alert')).toHaveTextContent('Não foi possível carregar sua Pokédex')
+  })
 })
