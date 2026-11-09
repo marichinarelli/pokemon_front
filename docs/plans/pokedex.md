@@ -883,7 +883,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes do service `fetchPokemon` (com MSW) e da AddPokemonPage passam, e a rota `/adicionar` está registrada.
 - Depende de: B2
 
-#### [~] B3.S1 — fetchPokemon mapeia a resposta da PokéAPI
+#### [x] B3.S1 — fetchPokemon mapeia a resposta da PokéAPI
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -1283,7 +1283,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/types.ts`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B5.S2 — filterEntries filtra por tipo e combina com texto
+#### [~] B5.S2 — filterEntries filtra por tipo e combina com texto
 - Tipo: comportamento
 - Depende de: B5.S1
 - Paralelo: não
@@ -1731,3 +1731,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B2.S7 | 1 | haiku | APROVADO | verde de primeira (B2.S5); não-vacuidade provada |
 | B2.S8 | 1 | haiku | APROVADO |  |
 | B5.S1 | 1 | haiku | APROVADO |  |
+| B3.S1 | 1 | haiku | APROVADO |  |
