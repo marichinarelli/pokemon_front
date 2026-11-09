@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { filterEntries } from './filterEntries'
+import { filterEntries, uniqueTypes } from './filterEntries'
 import { makeEntry } from '../test/fixtures'
 
 describe('filterEntries', () => {
@@ -16,5 +16,10 @@ describe('filterEntries', () => {
   it('filtra por tipo e combina com o texto', () => {
     expect(filterEntries(entries, { text: '', type: 'poison' })).toEqual([bulba])
     expect(filterEntries(entries, { text: 'spar', type: 'poison' })).toEqual([])
+  })
+
+  it('uniqueTypes devolve os tipos sem repetição em ordem alfabética', () => {
+    const lista = [sparky, bulba, makeEntry({ id: 'e3', types: ['electric'] })]
+    expect(uniqueTypes(lista)).toEqual(['electric', 'grass', 'poison'])
   })
 })

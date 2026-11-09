@@ -13,3 +13,7 @@ export function filterEntries(entries: PokedexEntry[], filters: EntryFilters): P
     return matchesText && matchesType
   })
 }
+
+export function uniqueTypes(entries: PokedexEntry[]): string[] {
+  return [...new Set(entries.flatMap((e) => e.types))].sort()
+}

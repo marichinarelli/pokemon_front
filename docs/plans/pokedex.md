@@ -964,7 +964,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/pokeapi.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B3.S4 — AddPokemonPage mostra a prévia depois da busca
+#### [~] B3.S4 — AddPokemonPage mostra a prévia depois da busca
 - Tipo: comportamento
 - Depende de: B3.S3
 - Paralelo: não
@@ -1301,7 +1301,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/lib/filterEntries.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B5.S3 — uniqueTypes lista os tipos da coleção sem repetir, em ordem
+#### [x] B5.S3 — uniqueTypes lista os tipos da coleção sem repetir, em ordem
 - Tipo: comportamento
 - Depende de: B5.S2
 - Paralelo: não
@@ -1739,3 +1739,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B4.S1 | 1 | haiku | APROVADO |  |
 | B4.S3 | 1 | haiku | APROVADO |  |
 | B3.S3 | 1 | haiku | APROVADO |  |
+| B5.S3 | 1 | haiku | APROVADO |  |
