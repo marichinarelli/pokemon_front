@@ -1656,7 +1656,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `package.json`, `.gitignore`, `.env.example`
 - Aceite: verificação passa; suíte não piora.
 
-#### [ ] B8.S2 — Spec E2E: proteção de rota e ciclo adicionar → ver → excluir
+#### [x] B8.S2 — Spec E2E: proteção de rota e ciclo adicionar → ver → excluir
 - Tipo: preparação
 - Depende de: B8.S1
 - Paralelo: não
@@ -1766,3 +1766,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B4.S7 | 1 | haiku | APROVADO |  |
 | B8.S1 | 1 | haiku | BLOQUEADO | Verificação: playwright --list sai 1 sem testes; orquestrador corrigiu para --pass-with-no-tests |
 | B8.S1 | 1 | haiku | APROVADO | após ajuste da Verificação |
+| B8.S2 | 1 | haiku | APROVADO | E2E 2/2 contra Supabase real |
