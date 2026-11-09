@@ -1614,7 +1614,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/App.tsx`, `src/App.test.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-### [ ] B8 — E2E contra Supabase real
+### [x] B8 — E2E contra Supabase real
 - Objetivo: provar o fluxo completo no navegador com Supabase real: login, adicionar com foto, ver na lista, excluir.
 - Pronto quando: `npm run e2e` passa com `.env.local` configurado.
 - Depende de: B5, B7
