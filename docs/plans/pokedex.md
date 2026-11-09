@@ -1485,7 +1485,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/PokemonDetailPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B7.S3 — EditPokemonPage abre com os dados atuais preenchidos
+#### [x] B7.S3 — EditPokemonPage abre com os dados atuais preenchidos
 - Tipo: comportamento
 - Depende de: B4.S5
 - Paralelo: sim
@@ -1747,3 +1747,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B4.S5 | 1 | haiku | APROVADO |  |
 | B3.S5 | 1 | haiku | APROVADO |  |
 | B5.S5 | 1 | haiku | APROVADO |  |
+| B7.S3 | 1 | haiku | APROVADO | TS6133 photo/setError (estados da spec) até B7.S4/S5 |
