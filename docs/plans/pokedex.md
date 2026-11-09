@@ -654,7 +654,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes de `rowToEntry`, PokemonCard, PokedexPage e a rota `/` no App passam.
 - Depende de: B1
 
-#### [~] B2.S1 — rowToEntry converte linha do banco para PokedexEntry
+#### [x] B2.S1 — rowToEntry converte linha do banco para PokedexEntry
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -780,7 +780,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/types.ts`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B2.S4 — PokemonCard sem apelido e sem foto usa nome e arte oficial
+#### [~] B2.S4 — PokemonCard sem apelido e sem foto usa nome e arte oficial
 - Tipo: comportamento
 - Depende de: B2.S3
 - Paralelo: não
@@ -1723,3 +1723,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B1.S11 | 1 | haiku | APROVADO |  |
 | B1.S12 | 1 | haiku | APROVADO |  |
 | B2.S3 | 1 | haiku | APROVADO |  |
+| B2.S1 | 1 | haiku | APROVADO | build com TS6133 (import supabase da spec) até B2.S2 |
