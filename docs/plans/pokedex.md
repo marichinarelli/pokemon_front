@@ -948,7 +948,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/pokeapi.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B3.S3 — fetchPokemon normaliza a busca (trim + minúsculas)
+#### [x] B3.S3 — fetchPokemon normaliza a busca (trim + minúsculas)
 - Tipo: comportamento
 - Depende de: B3.S2
 - Paralelo: não
@@ -1144,7 +1144,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/lib/supabase.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B4.S4 — photoPathFromUrl extrai o caminho da URL pública
+#### [~] B4.S4 — photoPathFromUrl extrai o caminho da URL pública
 - Tipo: comportamento
 - Depende de: B4.S3
 - Paralelo: não
@@ -1738,3 +1738,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B5.S2 | 1 | haiku | APROVADO |  |
 | B4.S1 | 1 | haiku | APROVADO |  |
 | B4.S3 | 1 | haiku | APROVADO |  |
+| B3.S3 | 1 | haiku | APROVADO |  |

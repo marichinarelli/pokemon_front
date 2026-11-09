@@ -27,4 +27,18 @@ describe('pokeapi', () => {
 
     expect(result).toBeNull()
   })
+
+  it('fetchPokemon remove espaços e usa minúsculas na URL', async () => {
+    let requested = ''
+    server.use(
+      http.get('https://pokeapi.co/api/v2/pokemon/:query', ({ params }) => {
+        requested = String(params.query)
+        return HttpResponse.json(pikachuResponse)
+      }),
+    )
+
+    await fetchPokemon('  Pikachu ')
+
+    expect(requested).toBe('pikachu')
+  })
 })
