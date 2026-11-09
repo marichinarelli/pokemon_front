@@ -312,7 +312,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: nenhum.
 - Aceite: verificação passa; suíte não piora.
 
-### [ ] B1 — Autenticação
+### [x] B1 — Autenticação
 - Objetivo: cadastro, login e logout com email e senha; rotas protegidas redirecionam para `/login`.
 - Pronto quando: testes de AuthProvider, Header, ProtectedRoute, LoginPage, SignupPage e App passam.
 - Depende de: B0
