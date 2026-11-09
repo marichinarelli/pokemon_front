@@ -83,7 +83,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 
 ## Blocos
 
-### [ ] B0 — Fundação
+### [x] B0 — Fundação
 - Objetivo: projeto Vite + React + TS com Tailwind, Vitest/Testing Library/MSW configurados, tipos de domínio, cliente Supabase, fixtures de teste e migration SQL.
 - Pronto quando: `npm run build` passa e `npx vitest run --passWithNoTests` sai com código 0.
 - Depende de: —
@@ -124,7 +124,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: nenhum (repo vazio).
 - Aceite: verificação passa; suíte não piora.
 
-#### [ ] B0.S2 — Configurar Tailwind, Vitest, jsdom e MSW
+#### [x] B0.S2 — Configurar Tailwind, Vitest, jsdom e MSW
 - Tipo: preparação
 - Depende de: B0.S1
 - Paralelo: não
@@ -178,7 +178,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `vite.config.ts`, `package.json`, `tsconfig.app.json`
 - Aceite: verificação passa; suíte não piora.
 
-#### [ ] B0.S3 — Tipos de domínio, cliente Supabase, .env.example e fixtures de teste
+#### [x] B0.S3 — Tipos de domínio, cliente Supabase, .env.example e fixtures de teste
 - Tipo: preparação
 - Depende de: B0.S2
 - Paralelo: não
@@ -262,7 +262,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `vite.config.ts`
 - Aceite: verificação passa; suíte não piora.
 
-#### [ ] B0.S4 — Migration SQL: tabela, RLS e bucket de fotos
+#### [x] B0.S4 — Migration SQL: tabela, RLS e bucket de fotos
 - Tipo: preparação
 - Depende de: —
 - Paralelo: sim
@@ -1707,3 +1707,6 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 |---|---|---|---|---|
 | B0.S1 | 1 | haiku | BLOQUEADO | passo 4: msw@3 exige typescript>=5.9, template fixa ~5.8.3 (ERESOLVE). Passos 1-3 feitos, 5-9 pendentes |
 | B0.S1 | 2 | haiku | APROVADO | retomada passos 4-9 com msw@2; build ok |
+| B0.S2 | 1 | haiku | APROVADO | |
+| B0.S4 | 1 | haiku | APROVADO | |
+| B0.S3 | 1 | haiku | APROVADO | |
