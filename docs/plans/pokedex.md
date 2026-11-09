@@ -883,7 +883,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes do service `fetchPokemon` (com MSW) e da AddPokemonPage passam, e a rota `/adicionar` está registrada.
 - Depende de: B2
 
-#### [ ] B3.S1 — fetchPokemon mapeia a resposta da PokéAPI
+#### [~] B3.S1 — fetchPokemon mapeia a resposta da PokéAPI
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -1245,7 +1245,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes de `filterEntries`, `uniqueTypes` e dos filtros na PokedexPage passam.
 - Depende de: B2
 
-#### [ ] B5.S1 — filterEntries filtra por texto no nome ou apelido
+#### [x] B5.S1 — filterEntries filtra por texto no nome ou apelido
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -1363,7 +1363,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes da PokemonDetailPage e da rota no App passam.
 - Depende de: B2
 
-#### [ ] B6.S1 — PokemonDetailPage mostra os dados da entrada
+#### [~] B6.S1 — PokemonDetailPage mostra os dados da entrada
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -1730,3 +1730,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B2.S6 | 1 | haiku | APROVADO |  |
 | B2.S7 | 1 | haiku | APROVADO | verde de primeira (B2.S5); não-vacuidade provada |
 | B2.S8 | 1 | haiku | APROVADO |  |
+| B5.S1 | 1 | haiku | APROVADO |  |
