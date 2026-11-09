@@ -1577,7 +1577,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/EditPokemonPage.tsx`, `src/services/storage.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B7.S6 — Edição recusa foto inválida
+#### [x] B7.S6 — Edição recusa foto inválida
 - Tipo: comportamento
 - Depende de: B7.S5
 - Paralelo: não
@@ -1760,3 +1760,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B4.S6 | 1 | haiku | BLOQUEADO | mesma contradição do B7.S6: alert após "Salvar na Pokédex" some porque o submit navega para / |
 | B7.S1 | 1 | haiku | APROVADO | guarda !entry por tipo |
 | B7.S2 | 1 | haiku | APROVADO | verde de primeira (B7.S1); não-vacuidade provada |
+| B7.S6 | 2 | haiku | APROVADO | spec ajustada pelo usuário: alerta antes do clique |

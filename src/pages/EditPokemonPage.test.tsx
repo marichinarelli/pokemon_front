@@ -67,4 +67,22 @@ describe('EditPokemonPage', () => {
     expect(deletePhoto).toHaveBeenCalledWith('https://cdn.test/antiga.png')
     expect(await screen.findByTestId('location')).toHaveTextContent('/pokemon/entry-1')
   })
+
+  it('foto nova que não é imagem mostra erro e não é enviada', async () => {
+    const user = userEvent.setup({ applyAccept: false })
+    vi.mocked(getEntry).mockResolvedValue(makeEntry({ photoUrl: 'https://cdn.test/antiga.png' }))
+    vi.mocked(updateEntry).mockResolvedValue(makeEntry())
+
+    renderPage(<EditPokemonPage />, { path: '/pokemon/:id/editar', route: '/pokemon/entry-1/editar' })
+
+    const doc = new File(['x'], 'doc.pdf', { type: 'application/pdf' })
+    await user.upload(await screen.findByLabelText('Nova foto (opcional)'), doc)
+
+    expect(screen.getByRole('alert')).toHaveTextContent('Envie um arquivo de imagem')
+
+    await user.click(screen.getByRole('button', { name: 'Salvar alterações' }))
+
+    expect(uploadPhoto).not.toHaveBeenCalled()
+    expect(updateEntry).toHaveBeenCalledWith('entry-1', expect.objectContaining({ photoUrl: 'https://cdn.test/antiga.png' }))
+  })
 })

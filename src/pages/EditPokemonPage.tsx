@@ -4,6 +4,7 @@ import { useAuth } from '../auth/AuthProvider'
 import { getEntry, updateEntry } from '../services/pokedex'
 import { deletePhoto, uploadPhoto } from '../services/storage'
 import type { PokedexEntry } from '../types'
+import { validatePhoto } from '../lib/validatePhoto'
 
 export function EditPokemonPage() {
   const { id } = useParams()
@@ -60,7 +61,22 @@ export function EditPokemonPage() {
           Notas <textarea value={notes} onChange={(e) => setNotes(e.target.value)} />
         </label>
         <label>
-          Nova foto (opcional) <input type="file" accept="image/*" onChange={(e) => setPhoto(e.target.files?.[0] ?? null)} />
+          Nova foto (opcional){' '}
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              const file = e.target.files?.[0] ?? null
+              const problem = file ? validatePhoto(file) : null
+              if (problem) {
+                setError(problem)
+                setPhoto(null)
+              } else {
+                setError(null)
+                setPhoto(file)
+              }
+            }}
+          />
         </label>
         <button type="submit">Salvar alterações</button>
         <Link to={`/pokemon/${entry.id}`}>Cancelar</Link>
