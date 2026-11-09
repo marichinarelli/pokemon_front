@@ -317,7 +317,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes de AuthProvider, Header, ProtectedRoute, LoginPage, SignupPage e App passam.
 - Depende de: B0
 
-#### [ ] B1.S1 — Service de autenticação sobre o Supabase
+#### [x] B1.S1 — Service de autenticação sobre o Supabase
 - Tipo: preparação
 - Depende de: —
 - Paralelo: não
@@ -1710,3 +1710,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B0.S2 | 1 | haiku | APROVADO | |
 | B0.S4 | 1 | haiku | APROVADO | |
 | B0.S3 | 1 | haiku | APROVADO | |
+| B1.S1 | 1 | haiku | APROVADO |  |
