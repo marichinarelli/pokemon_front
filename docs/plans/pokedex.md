@@ -88,7 +88,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: `npm run build` passa e `npx vitest run --passWithNoTests` sai com código 0.
 - Depende de: —
 
-#### [ ] B0.S1 — Criar o projeto Vite react-ts e instalar dependências
+#### [x] B0.S1 — Criar o projeto Vite react-ts e instalar dependências
 - Tipo: preparação
 - Depende de: —
 - Paralelo: não
@@ -98,7 +98,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
   1. Na raiz do repo (que tem `.git`, `.gitignore` e `docs/`), mova `docs/` e `.gitignore` temporariamente para fora do repo, rode `CI=1 npm create vite@6 . -- --template react-ts` e devolva `docs/` ao lugar. Descarte o `.gitignore` antigo: o gerado pelo Vite já ignora `.DS_Store`. Se o gerado não tiver `.DS_Store`, acrescente essa linha.
   2. `npm install`
   3. `npm install react-router-dom @supabase/supabase-js`
-  4. `npm install -D tailwindcss @tailwindcss/vite vitest jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event msw`
+  4. `npm install -D tailwindcss @tailwindcss/vite vitest jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event msw@2` (msw@2, não @3: o msw@3 exige typescript>=5.9 e o template fixa ~5.8.3; decisão do usuário em 2026-11-09)
   5. Apague `src/App.css` e a pasta `src/assets/`. Apague `public/vite.svg` e remova a tag `<link rel="icon" ...>` do `index.html`.
   6. No `index.html`, troque o `<title>` para `Pokédex`.
   7. `src/App.tsx` fica exatamente:
@@ -1705,3 +1705,5 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 <!-- preenchido pelo modo EXECUTAR: uma linha por tentativa -->
 | Subtarefa | Tentativa | Executor | Veredito | Nota |
 |---|---|---|---|---|
+| B0.S1 | 1 | haiku | BLOQUEADO | passo 4: msw@3 exige typescript>=5.9, template fixa ~5.8.3 (ERESOLVE). Passos 1-3 feitos, 5-9 pendentes |
+| B0.S1 | 2 | haiku | APROVADO | retomada passos 4-9 com msw@2; build ok |
