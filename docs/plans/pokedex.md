@@ -1193,7 +1193,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/storage.ts`
 - Aceite: verificação passa; suíte não piora.
 
-#### [~] B4.S6 — AddPokemonPage recusa foto inválida e salva sem foto
+#### [!] B4.S6 — AddPokemonPage recusa foto inválida e salva sem foto
 - Tipo: comportamento
 - Depende de: B4.S2, B4.S5, B3.S8
 - Paralelo: não
@@ -1434,7 +1434,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes de exclusão na PokemonDetailPage, da EditPokemonPage e da rota de edição no App passam.
 - Depende de: B4, B6
 
-#### [ ] B7.S1 — Excluir confirmado remove a entrada, a foto e volta para a lista
+#### [x] B7.S1 — Excluir confirmado remove a entrada, a foto e volta para a lista
 - Tipo: comportamento
 - Depende de: B6.S3, B4.S5
 - Paralelo: não
@@ -1575,7 +1575,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/EditPokemonPage.tsx`, `src/services/storage.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B7.S6 — Edição recusa foto inválida
+#### [!] B7.S6 — Edição recusa foto inválida
 - Tipo: comportamento
 - Depende de: B7.S5
 - Paralelo: não
@@ -1754,3 +1754,6 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B7.S5 | 1 | haiku | APROVADO | useAuth adicionado (spec assume user) |
 | B3.S8 | 1 | haiku | APROVADO |  |
 | B6.S3 | 1 | haiku | APROVADO |  |
+| B7.S6 | 1 | haiku | BLOQUEADO | spec contraditória: alert após "Salvar alterações" some porque o submit navega para o detalhe |
+| B4.S6 | 1 | haiku | BLOQUEADO | mesma contradição do B7.S6: alert após "Salvar na Pokédex" some porque o submit navega para / |
+| B7.S1 | 1 | haiku | APROVADO | guarda !entry por tipo |

@@ -1,16 +1,28 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { getEntry } from '../services/pokedex'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { deleteEntry, getEntry } from '../services/pokedex'
+import { deletePhoto } from '../services/storage'
 import { typeColor } from '../lib/typeColors'
 import type { PokedexEntry } from '../types'
 
 export function PokemonDetailPage() {
   const { id } = useParams()
+  const navigate = useNavigate()
   const [entry, setEntry] = useState<PokedexEntry | null | undefined>(undefined)
 
   useEffect(() => {
     getEntry(id!).then(setEntry)
   }, [id])
+
+  async function handleDelete() {
+    if (!entry) return
+    if (!window.confirm('Excluir este pokémon da sua Pokédex?')) return
+    await deleteEntry(entry.id)
+    if (entry.photoUrl) {
+      try { await deletePhoto(entry.photoUrl) } catch { /* foto órfã é aceitável */ }
+    }
+    navigate('/')
+  }
 
   if (entry === undefined) {
     return <p>Carregando...</p>
@@ -40,6 +52,7 @@ export function PokemonDetailPage() {
       </ul>
       {entry.notes && <p>{entry.notes}</p>}
       <Link to={`/pokemon/${entry.id}/editar`}>Editar</Link>
+      <button type="button" onClick={handleDelete}>Excluir</button>
       <Link to="/">Voltar para a Pokédex</Link>
     </>
   )
