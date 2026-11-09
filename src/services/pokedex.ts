@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabase'
-import type { PokedexEntry } from '../types'
+import type { NewPokedexEntry, PokedexEntry, PokedexEntryUpdate } from '../types'
 
 export type PokedexRow = {
   id: string
@@ -27,4 +27,52 @@ export function rowToEntry(row: PokedexRow): PokedexEntry {
     notes: row.notes,
     createdAt: row.created_at,
   }
+}
+
+const TABLE = 'pokedex_entries'
+
+export async function listEntries(): Promise<PokedexEntry[]> {
+  const { data, error } = await supabase.from(TABLE).select('*').order('created_at', { ascending: false })
+  if (error) throw new Error(error.message)
+  return (data as PokedexRow[]).map(rowToEntry)
+}
+
+export async function getEntry(id: string): Promise<PokedexEntry | null> {
+  const { data, error } = await supabase.from(TABLE).select('*').eq('id', id).maybeSingle()
+  if (error) throw new Error(error.message)
+  return data ? rowToEntry(data as PokedexRow) : null
+}
+
+export async function createEntry(input: NewPokedexEntry): Promise<PokedexEntry> {
+  const { data, error } = await supabase
+    .from(TABLE)
+    .insert({
+      pokeapi_id: input.pokeapiId,
+      pokemon_name: input.pokemonName,
+      types: input.types,
+      artwork_url: input.artworkUrl,
+      nickname: input.nickname,
+      photo_url: input.photoUrl,
+      notes: input.notes,
+    })
+    .select('*')
+    .single()
+  if (error) throw new Error(error.message)
+  return rowToEntry(data as PokedexRow)
+}
+
+export async function updateEntry(id: string, changes: PokedexEntryUpdate): Promise<PokedexEntry> {
+  const { data, error } = await supabase
+    .from(TABLE)
+    .update({ nickname: changes.nickname, photo_url: changes.photoUrl, notes: changes.notes })
+    .eq('id', id)
+    .select('*')
+    .single()
+  if (error) throw new Error(error.message)
+  return rowToEntry(data as PokedexRow)
+}
+
+export async function deleteEntry(id: string): Promise<void> {
+  const { error } = await supabase.from(TABLE).delete().eq('id', id)
+  if (error) throw new Error(error.message)
 }

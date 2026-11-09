@@ -673,7 +673,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/types.ts`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B2.S2 — Funções CRUD do service da Pokédex
+#### [x] B2.S2 — Funções CRUD do service da Pokédex
 - Tipo: preparação
 - Depende de: B2.S1
 - Paralelo: não
@@ -1725,3 +1725,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B2.S3 | 1 | haiku | APROVADO |  |
 | B2.S1 | 1 | haiku | APROVADO | build com TS6133 (import supabase da spec) até B2.S2 |
 | B2.S4 | 1 | haiku | APROVADO | verde de primeira (B2.S3); não-vacuidade provada |
+| B2.S2 | 1 | haiku | APROVADO | import type ampliado (NewPokedexEntry, PokedexEntryUpdate) para compilar |
