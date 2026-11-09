@@ -948,7 +948,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/pokeapi.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B3.S3 — fetchPokemon normaliza a busca (trim + minúsculas)
+#### [~] B3.S3 — fetchPokemon normaliza a busca (trim + minúsculas)
 - Tipo: comportamento
 - Depende de: B3.S2
 - Paralelo: não
@@ -1077,7 +1077,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Pronto quando: testes de `validatePhoto`, `buildPhotoPath`, `photoPathFromUrl` e do upload na AddPokemonPage passam.
 - Depende de: B3
 
-#### [~] B4.S1 — validatePhoto recusa arquivo que não é imagem
+#### [x] B4.S1 — validatePhoto recusa arquivo que não é imagem
 - Tipo: comportamento
 - Depende de: —
 - Paralelo: sim
@@ -1301,7 +1301,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/lib/filterEntries.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B5.S3 — uniqueTypes lista os tipos da coleção sem repetir, em ordem
+#### [~] B5.S3 — uniqueTypes lista os tipos da coleção sem repetir, em ordem
 - Tipo: comportamento
 - Depende de: B5.S2
 - Paralelo: não
@@ -1736,3 +1736,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B6.S2 | 1 | haiku | APROVADO |  |
 | B3.S2 | 1 | haiku | APROVADO |  |
 | B5.S2 | 1 | haiku | APROVADO |  |
+| B4.S1 | 1 | haiku | APROVADO |  |
