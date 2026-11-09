@@ -55,4 +55,24 @@ describe('PokedexPage', () => {
     expect(screen.getByRole('heading', { name: 'bulbasaur' })).toBeInTheDocument()
     expect(screen.queryByRole('heading', { name: 'Sparky' })).toBeNull()
   })
+
+  it('filtrar por tipo mostra só aquele tipo e avisa quando nada combina', async () => {
+    const user = userEvent.setup()
+    vi.mocked(listEntries).mockResolvedValue([
+      makeEntry({ id: 'e1', nickname: 'Sparky' }),
+      makeEntry({ id: 'e2', pokeapiId: 1, pokemonName: 'bulbasaur', types: ['grass', 'poison'] }),
+    ])
+
+    renderPage(<PokedexPage />, { path: '/', route: '/' })
+    expect(await screen.findByRole('heading', { name: 'Sparky' })).toBeInTheDocument()
+
+    await user.selectOptions(screen.getByLabelText('Tipo'), 'poison')
+
+    expect(screen.getByRole('heading', { name: 'bulbasaur' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Sparky' })).toBeNull()
+
+    await user.type(screen.getByLabelText('Buscar'), 'spar')
+
+    expect(screen.getByText('Nenhum pokémon encontrado')).toBeInTheDocument()
+  })
 })

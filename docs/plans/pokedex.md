@@ -1010,7 +1010,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/AddPokemonPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B3.S6 — AddPokemonPage salva na coleção e volta para a lista
+#### [~] B3.S6 — AddPokemonPage salva na coleção e volta para a lista
 - Tipo: comportamento
 - Depende de: B3.S5
 - Paralelo: não
@@ -1336,7 +1336,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/PokedexPage.tsx`, `src/lib/filterEntries.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B5.S5 — PokedexPage filtra por tipo e avisa quando nada combina
+#### [x] B5.S5 — PokedexPage filtra por tipo e avisa quando nada combina
 - Tipo: comportamento
 - Depende de: B5.S4
 - Paralelo: não
@@ -1746,3 +1746,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B5.S4 | 1 | haiku | APROVADO |  |
 | B4.S5 | 1 | haiku | APROVADO |  |
 | B3.S5 | 1 | haiku | APROVADO |  |
+| B5.S5 | 1 | haiku | APROVADO |  |
