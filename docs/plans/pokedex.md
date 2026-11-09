@@ -620,7 +620,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/pages/SignupPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B1.S12 — App: rotas públicas e protegidas; sem sessão "/" mostra o login
+#### [x] B1.S12 — App: rotas públicas e protegidas; sem sessão "/" mostra o login
 - Tipo: comportamento
 - Depende de: B1.S6, B1.S8, B1.S11
 - Paralelo: não
@@ -1721,3 +1721,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B1.S10 | 1 | haiku | APROVADO |  |
 | B1.S6 | 1 | haiku | APROVADO | verde de primeira (coberto pelo B1.S5) |
 | B1.S11 | 1 | haiku | APROVADO |  |
+| B1.S12 | 1 | haiku | APROVADO |  |
