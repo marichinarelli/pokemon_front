@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { renderPage } from '../test/renderPage'
 import { makeEntry } from '../test/fixtures'
 import { listEntries } from '../services/pokedex'
@@ -37,5 +38,21 @@ describe('PokedexPage', () => {
     renderPage(<PokedexPage />, { path: '/', route: '/' })
 
     expect(await screen.findByRole('alert')).toHaveTextContent('Não foi possível carregar sua Pokédex')
+  })
+
+  it('digitar na busca mostra só os pokémons que combinam', async () => {
+    const user = userEvent.setup()
+    vi.mocked(listEntries).mockResolvedValue([
+      makeEntry({ id: 'e1', nickname: 'Sparky' }),
+      makeEntry({ id: 'e2', pokemonName: 'bulbasaur', types: ['grass', 'poison'] }),
+    ])
+
+    renderPage(<PokedexPage />, { path: '/', route: '/' })
+    expect(await screen.findByRole('heading', { name: 'Sparky' })).toBeInTheDocument()
+
+    await user.type(screen.getByLabelText('Buscar'), 'bulba')
+
+    expect(screen.getByRole('heading', { name: 'bulbasaur' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Sparky' })).toBeNull()
   })
 })

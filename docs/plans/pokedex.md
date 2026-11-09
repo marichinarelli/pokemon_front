@@ -992,7 +992,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/pokeapi.ts`, `src/services/pokedex.ts`, `src/test/renderPage.tsx`, `src/test/fixtures.ts`, `src/pages/PokedexPage.tsx`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B3.S5 — AddPokemonPage avisa quando o pokémon não existe
+#### [~] B3.S5 — AddPokemonPage avisa quando o pokémon não existe
 - Tipo: comportamento
 - Depende de: B3.S4
 - Paralelo: não
@@ -1317,7 +1317,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/lib/filterEntries.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B5.S4 — PokedexPage filtra a lista pelo campo de busca
+#### [x] B5.S4 — PokedexPage filtra a lista pelo campo de busca
 - Tipo: comportamento
 - Depende de: B5.S3, B2.S8
 - Paralelo: não
@@ -1743,3 +1743,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B4.S2 | 1 | haiku | APROVADO |  |
 | B4.S4 | 1 | haiku | APROVADO |  |
 | B3.S4 | 1 | haiku | APROVADO |  |
+| B5.S4 | 1 | haiku | APROVADO |  |
