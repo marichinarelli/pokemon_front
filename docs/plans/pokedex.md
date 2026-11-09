@@ -830,7 +830,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/pokedex.ts`, `src/components/PokemonCard.tsx`, `src/test/renderPage.tsx`, `src/test/fixtures.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B2.S6 — PokedexPage mostra estado vazio
+#### [x] B2.S6 — PokedexPage mostra estado vazio
 - Tipo: comportamento
 - Depende de: B2.S5
 - Paralelo: não
@@ -1727,3 +1727,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B2.S4 | 1 | haiku | APROVADO | verde de primeira (B2.S3); não-vacuidade provada |
 | B2.S2 | 1 | haiku | APROVADO | import type ampliado (NewPokedexEntry, PokedexEntryUpdate) para compilar |
 | B2.S5 | 1 | haiku | APROVADO |  |
+| B2.S6 | 1 | haiku | APROVADO |  |

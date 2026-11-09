@@ -21,4 +21,13 @@ describe('PokedexPage', () => {
     expect(screen.getByRole('heading', { name: 'Minha Pokédex' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Adicionar pokémon' })).toHaveAttribute('href', '/adicionar')
   })
+
+  it('sem pokémons mostra a mensagem de Pokédex vazia', async () => {
+    vi.mocked(listEntries).mockResolvedValue([])
+
+    renderPage(<PokedexPage />, { path: '/', route: '/' })
+
+    expect(await screen.findByText('Sua Pokédex está vazia')).toBeInTheDocument()
+    expect(screen.queryByRole('list')).toBeNull()
+  })
 })

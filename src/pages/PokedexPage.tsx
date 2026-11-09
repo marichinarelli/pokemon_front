@@ -22,6 +22,8 @@ export function PokedexPage() {
         <p role="alert">{error}</p>
       ) : entries === null ? (
         <p>Carregando...</p>
+      ) : entries.length === 0 ? (
+        <p>Sua Pokédex está vazia</p>
       ) : (
         <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {entries.map((entry) => (
