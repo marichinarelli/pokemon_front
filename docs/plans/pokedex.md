@@ -964,7 +964,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/pokeapi.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [~] B3.S4 — AddPokemonPage mostra a prévia depois da busca
+#### [x] B3.S4 — AddPokemonPage mostra a prévia depois da busca
 - Tipo: comportamento
 - Depende de: B3.S3
 - Paralelo: não
@@ -1168,7 +1168,7 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 - Contexto para ler: `src/services/storage.ts`
 - Aceite: teste novo passa; testes já existentes do(s) arquivo(s) tocado(s) continuam passando.
 
-#### [ ] B4.S5 — uploadPhoto e deletePhoto sobre o Supabase Storage
+#### [~] B4.S5 — uploadPhoto e deletePhoto sobre o Supabase Storage
 - Tipo: preparação
 - Depende de: B4.S4
 - Paralelo: não
@@ -1742,3 +1742,4 @@ e2e/pokedex.spec.ts, e2e/fixtures/foto.png, playwright.config.ts
 | B5.S3 | 1 | haiku | APROVADO |  |
 | B4.S2 | 1 | haiku | APROVADO |  |
 | B4.S4 | 1 | haiku | APROVADO |  |
+| B3.S4 | 1 | haiku | APROVADO |  |
